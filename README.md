@@ -52,3 +52,15 @@ PZEM-004T Arduino Library.
 https://github.com/mandulaj/PZEM-004T-v30
 
 
+
+Web Interface :
+Web Interface (HTML/CSS/JS)
+Responsive Dashboard: Uses CSS Grid/Flexbox for a card-based layout that adapts to screen sizes, with Font Awesome icons and color-coded metrics.
+Auto-Refresh UI: JavaScript fetches JSON data via XMLHttpRequest every 2 seconds from /data endpoint, updating values like voltage, current, and power without page reloads (Ajax).
+Dynamic Placeholders: HTML uses %VARIABLE% syntax (e.g., %VOLTAGE%) replaced by ESP32’s processor() function during initial page load.
+Backend (ESP32)
+Async Web Server: Hosts a non-blocking server using ESPAsyncWebServer to handle both the dashboard page (/) and JSON API (/data).
+Sensor Integration: Reads PZEM-004T data (voltage, current, etc.) and stores it in global variables, which are atomically updated every 2 seconds.
+Error Handling: Returns “Error” in JSON/UI if sensor readings fail (isnan() checks).
+
+
